@@ -1,0 +1,56 @@
+.footercontainer{
+    height: 223px;
+    width: 100%;
+    background-color: #13100A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.term{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #FFFFFF4D;
+}
+.termname{
+font: 500 18px/27px 'Poppins', sans-serif;
+text-align: center;
+color: #FFFFFF;
+margin-right: 1rem;
+
+}
+.bottomcontain{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.copyrighttext{
+    font: 300 18px/22.34px 'Poppins', sans-serif;
+    text-align: center;
+    color: #FFFFFFB2;
+    margin-bottom: 10px;
+    
+}
+.sociallogo{
+    display: flex;
+    align-items: center;
+}
+
+.logobg{
+    width: 40px;
+    height: 40px;
+    padding: 8px 0 0 0;
+    gap: 10px;
+    border: 1px solid #737373;
+    border-radius: 8px;
+    opacity: 0;
+}
+ .logo{
+ width: 40px;
+ height: 40px;
+}
