@@ -1,56 +1,79 @@
-.footercontainer{
-    height: 223px;
-    width: 100%;
-    background-color: #13100A;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+.footercontainer {
+  height: 223px;
+  width: 100%;
+  background-color: #13100a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.term{
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #FFFFFF4D;
+.term {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ffffff4d;
 }
-.termname{
-font: 500 18px/27px 'Poppins', sans-serif;
-text-align: center;
-color: #FFFFFF;
-margin-right: 1rem;
-
+.termname {
+  font: 500 18px/27px "Poppins", sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin-right: 1rem;
+  cursor: pointer;
 }
-.bottomcontain{
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.bottomcontain {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.copyrighttext{
-    font: 300 18px/22.34px 'Poppins', sans-serif;
-    text-align: center;
-    color: #FFFFFFB2;
-    margin-bottom: 10px;
-    
-}
-.sociallogo{
-    display: flex;
-    align-items: center;
+.copyrighttext {
+  font: 300 18px/22.34px "Poppins", sans-serif;
+  text-align: center;
+  color: #ffffffb2;
+  margin-bottom: 10px;
 }
 
-.logobg{
-    width: 40px;
-    height: 40px;
-    padding: 8px 0 0 0;
-    gap: 10px;
-    border: 1px solid #737373;
-    border-radius: 8px;
+.sociallogo {
+  display: flex;
+  align-items: center;
+}
+
+.logobg {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #737373;
+  border-radius: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  animation-timing-function: ease-in;
+  animation-duration: 400ms;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes moveInLeft {
+  from {
+    transform: translateX(-100%);
     opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
- .logo{
- width: 40px;
- height: 40px;
+
+.logobg.animate {
+  animation: moveInLeft 400ms ease-in;
 }
+@media (max-width: 460px) {
+    .termname {
+      font: 500 14px/21px "Poppins", sans-serif; 
+    }
+  }
