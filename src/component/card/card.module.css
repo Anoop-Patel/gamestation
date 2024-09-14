@@ -1,0 +1,99 @@
+.cardcontainer {
+  width: 260px;
+  height: 300px;
+  border-radius: 10px;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  background-color: rgb(249, 249, 104);
+  position: relative;
+  margin: 8px;
+}
+.livecontainer {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  width: 60px;
+  background-color: #3d352a;
+  padding: 4px 8px;
+  color: #fff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.live {
+  height: 8px;
+  width: 8px;
+  box-shadow: 0px 0px 4px 2px #7cff8299;
+  border-radius: 50%;
+  background-color: #00ff0a;
+}
+.discount {
+  font: 600 10px/15px Poppins, sans-serif;
+  color: #fff;
+}
+
+.infocontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.namecontainer {
+  width: 100%;
+}
+.title {
+  font: 400 18px/43.44px Aoboshi One, sans-serif;
+  text-align: left;
+  color: #281e1f;
+}
+
+.productinfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rating {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.info {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+.return {
+  width: 100%;
+  font: 500 12px/18px Poppins, sans-serif;
+  text-align: start;
+  color: #000;
+}
+.info {
+  color: #ff1c1c;
+  font: 500 14px/21px Poppins, sans-serif;
+  text-align: start;
+}
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.buyproduct {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

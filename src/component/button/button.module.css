@@ -1,0 +1,15 @@
+.button {
+  width: 150px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: #e58f28;
+  padding: 0px 22px;
+  color: white;
+  z-index: 1;
+  cursor: pointer;
+  border: none;
+}
+.text {
+  font: 600 18px/15.05px Poppins, sans-serif;
+  text-align: center;
+}

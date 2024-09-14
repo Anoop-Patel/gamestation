@@ -1,7 +1,8 @@
 .homepage {
 
 position: relative;
-  
+  display: flex;
+ background-color: #F5C19F33;
  
 }
 
