@@ -1,10 +1,13 @@
 "use client";
+import Pagelayout from '@/component/layout/PageLayout';
 import React from 'react'
 
-const page = () => {
+const ProductDetail = () => {
   return (
-    <div>page</div>
-  )
+    <div>ProductDetail
+      
+    </div>
+   )
 }
 
-export default page
+export default ProductDetail

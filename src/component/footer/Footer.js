@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./footer.module.css";
-import Twitter from "../../app/assets/images/twitterlogo.png";
-import Facebook from "../../app/assets/images/facebooklogo.png";
-import Insta from "../../app/assets/images/instalogo.png";
+import Twitter from "@/app/assets/images/twitterlogo.png";
+import Facebook from "@/app/assets/images/facebooklogo.png";
+import Insta from "@/app/assets/images/instalogo.png";
+import IsAuthPage from "@/service/helper/isAuthPage";
 
 const Footer = () => {
+  const showFooter = !IsAuthPage();
+
   const termdata = [
     "Privacy Notice",
     "Term of Service",
@@ -38,33 +41,39 @@ const Footer = () => {
   };
 
   return (
-    <div className={styles.footercontainer}>
-      <div className={styles.term}>
-        {termdata?.map((item, index) => (
-          <span key={index} className={styles.termname}>
-            {item}
-          </span>
-        ))}
-      </div>
-      <div className={styles.bottomcontain}>
-        <span className={styles.copyrighttext}>
-          Copyright @ Gamequest, Inc. All rights reserved
-        </span>
-        <div className={styles.sociallogo}>
-          {sociallogo?.map((item, index) => (
-            <div
-              key={index}
-              className={`${styles.logobg} ${
-                clickedLogoIndex === index ? styles.animate : ""
-              }`}
-              onClick={() => handleClick(index)}
-            >
-              <Image src={item.src} className={styles.logo} alt="social logo" />
-            </div>
+    showFooter && (
+      <div className={styles.footercontainer}>
+        <div className={styles.term}>
+          {termdata?.map((item, index) => (
+            <span key={index} className={styles.termname}>
+              {item}
+            </span>
           ))}
         </div>
+        <div className={styles.bottomcontain}>
+          <span className={styles.copyrighttext}>
+            Copyright @ Gamequest, Inc. All rights reserved
+          </span>
+          <div className={styles.sociallogo}>
+            {sociallogo?.map((item, index) => (
+              <div
+                key={index}
+                className={`${styles.logobg} ${
+                  clickedLogoIndex === index ? styles.animate : ""
+                }`}
+                onClick={() => handleClick(index)}
+              >
+                <Image
+                  src={item.src}
+                  className={styles.logo}
+                  alt="social logo"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    )
   );
 };
 
