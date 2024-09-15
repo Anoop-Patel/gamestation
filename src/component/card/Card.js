@@ -2,8 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./card.module.css";
-import ActiveStar from "@/app/assets/images/activestar.png"; 
-import InActiveStar from "@/app/assets/images/blankstar.png"; 
+import ActiveStar from "@/app/assets/images/activestar.png";
+import InActiveStar from "@/app/assets/images/blankstar.png";
 import { fetchProductById } from "@/service/api/Function";
 import Button from "../button/Button";
 import { products } from "../../app/dummy";
@@ -41,6 +41,8 @@ const Card = () => {
   const truncateTitle = (title) => {
     return title.length > 23 ? `${title.substring(0, 23)}..` : title;
   };
+  console.log(products.images[0]);
+
   return (
     <div className={styles.cardcontainer}>
       <div className={styles.livecontainer}>
@@ -48,6 +50,18 @@ const Card = () => {
 
         <div className={styles.discount}>{product.discountPercentage}%</div>
       </div>
+      <div
+        className={styles.imagecontainer}
+        style={{ position: "relative", width: "100%", height: "100%" }}
+      >
+        <Image
+          src={products.images[0]}
+          alt="product image"
+          fill
+          className={styles.productimage ? styles.productimage : ActiveStar}
+        />
+      </div>
+
       <div className={styles.infocontainer}>
         <div className={styles.namecontainer}>
           <span className={styles.title}>{truncateTitle(product.title)}</span>

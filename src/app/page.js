@@ -1,18 +1,22 @@
 "use client";
+import { useState } from "react";
 import Sidebar from "@/component/sidebar/Sidebar";
 import styles from "./page.module.css";
-import Slider from "@/component/slider/Slider";
 import Sliders from "@/component/slider/Slider";
+import BannerSlider from "@/component/slider/bannerslider/BannerSlider";
 
 export default function Home() {
-   
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-
-    <div className={styles.homepage}>
-    <Sidebar/>
-    <Sliders name={"MOST TRENDING"} actionname={'GO TO GAME STORE'}/>
-
+    <div className={styles.homepagemaincontainer}>
+      <div className={styles.homepagecontainer}>
+        <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+        <BannerSlider isExpanded={isExpanded} />
+      </div>
+      <div>
+        <Sliders name={"MOST TRENDING"} actionname={"GO TO GAME STORE"} />
+      </div>
     </div>
-
   );
 }

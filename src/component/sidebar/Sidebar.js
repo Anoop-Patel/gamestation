@@ -5,8 +5,7 @@ import styles from "./sidebar.module.css";
 import Image from "next/image";
 import { sidebardata, sidebarBottomData } from "./config/data";
 
-const Sidebar = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const Sidebar = ({setIsExpanded,isExpanded}) => {
 
   const handleMouseEnter = () => {
     setIsExpanded(true);
