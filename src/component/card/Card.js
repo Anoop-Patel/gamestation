@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "./card.module.css";
 import ActiveStar from "@/app/assets/images/activestar.png"; 
-import InActiveStar from "@/app/assets/images/inactivestar.png"; 
+import InActiveStar from "@/app/assets/images/blankstar.png"; 
 import { fetchProductById } from "@/service/api/Function";
 import Button from "../button/Button";
 import { products } from "../../app/dummy";
