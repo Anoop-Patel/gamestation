@@ -5,9 +5,10 @@
   justify-content: space-between;
   width:100% ;
   height: 400px;
-  background-color: #231d12;
-  padding: 10px;
+  background-color: #4b3a1a;
+  padding: 10px 10px 10px 30px;
   box-sizing: border-box;
+  margin:2rem 0;
 }
 .contentinfo {
   display: flex;

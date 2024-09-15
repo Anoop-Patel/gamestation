@@ -7,7 +7,6 @@ import InActiveStar from "@/app/assets/images/blankstar.png";
 import Button from "../button/Button";
 
 const Card = ({ cardData }) => {
-  // Destructure cardData
   const { images, title, rating, category, brand, availabilityStatus, returnPolicy, price, discountPercentage } = cardData;
 
   const renderStars = (rating) => {

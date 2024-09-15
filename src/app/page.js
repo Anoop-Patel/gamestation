@@ -12,6 +12,7 @@ export default function Home() {
   const [productList, setProductList] = useState([]);
   const [topRatedProducts, setTopRatedProducts] = useState([]);
   const [lowPriceProducts, setLowPriceProducts] = useState([]);
+  const [singleProduct, setSingleProduct] = useState(null);
 
   const getAllProduct = async () => {
     try {
@@ -19,8 +20,12 @@ export default function Home() {
       if (res) {
         const products = res.data.products;
 
-        const sortedByRating = [...products].sort((a, b) => b.rating - a.rating);
+        // Sort by rating and select the top 3 products for BannerSlider
+        const sortedByRating = [...products].sort(
+          (a, b) => b.rating - a.rating
+        );
         setTopRatedProducts(sortedByRating);
+        setSingleProduct(products[0]); // Display the first product in Banner
 
         // Sort products by price (Low to High)
         const sortedByPrice = [...products].sort((a, b) => a.price - b.price);
@@ -41,24 +46,28 @@ export default function Home() {
     <div className={styles.homepagemaincontainer}>
       <div className={styles.homepagecontainer}>
         <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
-        <BannerSlider isExpanded={isExpanded} />
+        {singleProduct && (
+          <BannerSlider
+            isExpanded={isExpanded}
+            bannerProducts={topRatedProducts.slice(0, 3)}
+          />
+        )}
       </div>
       <div>
-        <Sliders 
-          name={"MOST RATED"} 
-          actionname={"GO TO PRODUCT STORE"} 
-          productList={topRatedProducts} 
+        <Sliders
+          name={"MOST RATED"}
+          actionname={"GO TO PRODUCT STORE"}
+          productList={topRatedProducts}
+        />
+        {singleProduct && <Banner product={singleProduct} />}
+
+        <Sliders
+          name={"MOST LOW PRICE"}
+          actionname={"GO TO PRODUCT STORE"}
+          productList={lowPriceProducts}
         />
 
-        <Banner/>
-
-        <Sliders 
-          name={"MOST LOW PRICE"} 
-          actionname={"GO TO PRODUCT STORE"} 
-          productList={lowPriceProducts} 
-        />
-
-        <Banner/>
+        {singleProduct && <Banner product={singleProduct} />}
       </div>
     </div>
   );
