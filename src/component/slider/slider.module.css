@@ -52,3 +52,9 @@ cursor: pointer;
 .slider::-webkit-scrollbar {
   display: none;
 }
+@media screen and (max-width: 600px) {
+  .slidercontainer{
+    padding: 10px ;
+
+  }
+}

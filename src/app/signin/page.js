@@ -39,15 +39,16 @@ const Signin = () => {
 
   return (
     <div className={styles.signinContainer}>
-      <h1>Sign In</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className={styles.formHeading}>Sign In</h1>
+      <form className={styles.formContainer} onSubmit={handleSubmit}>
         {errors && <p className={styles.error}>{errors}</p>}
         <div className={styles.formGroup}>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name" className={styles.formLabel}>Name:</label>
           <input
             type="text"
             id="name"
             name="name"
+            className={styles.formInput}
             value={formData.name}
             onChange={handleChange}
             required
@@ -55,18 +56,19 @@ const Signin = () => {
           />
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password" className={styles.formLabel}>Password:</label>
           <input
             type="password"
             id="password"
             name="password"
+            className={styles.formInput}
             value={formData.password}
             onChange={handleChange}
             required
             aria-required="true"
           />
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit" className={styles.formButton}>Sign In</button>
       </form>
     </div>
   );

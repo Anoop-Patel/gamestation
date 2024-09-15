@@ -62,3 +62,19 @@
   color: #fff;
   text-align: center;
 }
+@media screen and (max-width: 900px) {
+  .filtercontainer{
+    padding: 0.5rem 1.2rem;
+
+  }
+  .filtertitle {
+    font: 500 14px/22px "Poppins", sans-serif;
+  }
+}
+@media screen and (max-width: 600px) {
+  .filtercontainer{
+    padding: 0.5rem 1rem;
+    
+  }
+ 
+}

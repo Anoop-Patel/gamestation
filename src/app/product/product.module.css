@@ -5,7 +5,6 @@
   box-sizing: border-box;
   background-color: rgb(40, 27, 18);
   position: relative;
-
 }
 
 .filtercontainer {
@@ -18,11 +17,10 @@
 .productcontainer {
   display: flex;
   flex-direction: column;
-  width: 68%;
+  width: 75%;
   height: 100%;
   justify-content: flex-start;
   padding: 8px;
-
 }
 
 .searchcontainer {
@@ -47,6 +45,19 @@
   color: #fff;
   font: 400 20px/30px "Poppins", sans-serif;
 }
+.categoryfilter{
+  position: absolute;
+  left: 12px;
+  top: 1rem;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  padding: 8px 12px;
+  box-shadow: 4px 5px 21px -4px #00000033;
+  gap: 4px;
+  cursor: pointer;
+}
 .filterbycontainer {
   position: absolute;
   right: 12px;
@@ -60,20 +71,20 @@
   gap: 4px;
   cursor: pointer;
 }
-.sort{
-    color: #fff;
-    font: 400 15px/22.5px "Poppins", sans-serif;
-  
+
+.sort {
+  color: #fff;
+  font: 400 15px/22.5px "Poppins", sans-serif;
 }
-.logo{
-    width: 10px;
-    height: 10px;
+.logo {
+  width: 10px;
+  height: 10px;
 }
-.sortmodal{
-    z-index: 99;
-    position: absolute;
+.sortmodal {
+  z-index: 99;
+  position: absolute;
   right: 12px;
-  top: 4rem; 
+  top: 4rem;
 }
 
 .productlistcontainer {
@@ -81,4 +92,39 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .productmaincontainer{
+    padding: 0.3rem;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+  }
+  .productcontainer{
+    width: 100%;
+   
+  }
+  .filtercontainer{
+    width: 100%;
+ 
+  }
+  
+}
+
+
+@media screen and (min-width: 601px) {
+  .categoryfilter {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .productmaincontainer{
+    padding: 0.5rem;
+
+  }
+  .productcontainer{
+    width: 80%;
+  }
+  
 }

@@ -12,3 +12,21 @@
   font: 600 18px/15.05px Poppins, sans-serif;
   text-align: center;
 }
+@media screen and (max-width: 900px) {
+  .button{
+    padding: 0px 18px;
+
+  }
+  .text {
+    font: 600 16px/15.05px Poppins, sans-serif;
+  }
+}
+@media screen and (max-width: 600px) {
+  .button{
+    padding: 0px 16px;
+
+  }
+  .text {
+    font: 600 14px/15.05px Poppins, sans-serif;
+  }
+}

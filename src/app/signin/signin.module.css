@@ -1,0 +1,117 @@
+/* General Container Styling */
+.signinContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+  }
+  
+  /* Form Styling */
+  .formContainer {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Heading Styling (scoped via class) */
+  .formHeading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form Group */
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  /* Label Styling */
+  .formLabel {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  /* Input Styles */
+  .formInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+  }
+  
+  .formInput:focus {
+    border-color: #0070f3;
+  }
+  
+  /* Button Styling */
+  .formButton {
+    width: 100%;
+    padding: 12px;
+    background-color: #0070f3;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .formButton:hover {
+    background-color: #005bb5;
+  }
+  
+  /* Error Message Styling */
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .signinContainer {
+      padding: 20px;
+    }
+  
+    .formContainer {
+      padding: 1.5rem;
+    }
+  
+    .formHeading {
+      font-size: 1.8rem;
+    }
+  
+    .formInput,
+    .formButton {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .formHeading {
+      font-size: 1.6rem;
+    }
+  
+    .formContainer {
+      padding: 1rem;
+    }
+  
+    .formButton {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  }
+  

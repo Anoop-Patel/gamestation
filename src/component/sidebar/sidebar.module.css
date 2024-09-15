@@ -68,3 +68,8 @@
 .sidebarcontainer.expanded .menuItem span {
     opacity: 1; 
 }
+@media screen and (max-width: 650px) {
+    .sidebarcontainer{
+       display: none;
+    }
+  }

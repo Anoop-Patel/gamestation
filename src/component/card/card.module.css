@@ -109,3 +109,30 @@ width: 45%;
   align-items: center;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 600px) {
+  .cardcontainer{
+    padding:  4px;
+    margin: 6px 2px;
+
+
+  }
+  .title {
+    font: 400 14px/43.44px Aoboshi One, sans-serif;
+    text-align: left;
+    color: #281e1f;
+  }
+}
+@media screen and (max-width: 900px) {
+  .cardcontainer{
+    padding: 6px;
+    margin: 6px 2px;
+
+
+  }
+  .title {
+    font: 400 16px/43.44px Aoboshi One, sans-serif;
+    text-align: left;
+    color: #281e1f;
+  }
+}

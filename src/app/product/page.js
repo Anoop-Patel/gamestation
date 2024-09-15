@@ -5,7 +5,7 @@ import styles from "./product.module.css";
 import CategoryFilter from "@/component/filter/categoryfilter/CategoryFilter";
 import {
   fetchAllCategory,
-  fetchAllProduct
+  fetchAllProduct,
 } from "@/service/api/Function";
 import SortIcon from "@/app/assets/images/sorticon.png";
 import Sort from "@/component/sort/Sort";
@@ -20,6 +20,7 @@ const Product = () => {
     isModalOpen: false,
     sortOption: "",
   });
+  const [isCategoryFilterVisible, setIsCategoryFilterVisible] = useState(true); 
 
   const getAllProduct = async () => {
     try {
@@ -56,7 +57,7 @@ const Product = () => {
   };
 
   const sortProducts = (option) => {
-    let sortedProducts = [...filteredProductList]; 
+    let sortedProducts = [...filteredProductList];
     if (option === "price-low-to-high") {
       sortedProducts.sort((a, b) => a.price - b.price);
     } else if (option === "price-high-to-low") {
@@ -66,7 +67,7 @@ const Product = () => {
     } else if (option === "rating-low-to-high") {
       sortedProducts.sort((a, b) => a.rating - b.rating);
     }
-    setFilteredProductList(sortedProducts); 
+    setFilteredProductList(sortedProducts);
   };
 
   useEffect(() => {
@@ -84,6 +85,21 @@ const Product = () => {
     }
   }, [sortState.sortOption]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 600) {
+        setIsCategoryFilterVisible(true); 
+      } else {
+        setIsCategoryFilterVisible(false); 
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); 
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const handleSortOptionChange = (option) => {
     setSortState({ isModalOpen: false, sortOption: option });
   };
@@ -95,13 +111,24 @@ const Product = () => {
     }));
   };
 
+  const toggleCategoryFilter = () => {
+    setIsCategoryFilterVisible((prevVisible) => !prevVisible);
+  };
+
   return (
     <div className={styles.productmaincontainer}>
       <div className={styles.filtercontainer}>
-        <CategoryFilter
-          filterList={allcategory}
-          setSelectedCategory={setSelectedCategory}
-        />
+        {isCategoryFilterVisible && (
+          <CategoryFilter
+            filterList={allcategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        )}
+        <div className={styles.categoryfilter}>
+          <span className={styles.sort} onClick={toggleCategoryFilter}>
+            Category
+          </span>
+        </div>
       </div>
       <div className={styles.productcontainer}>
         <div className={styles.searchcontainer}>
