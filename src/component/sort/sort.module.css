@@ -1,0 +1,39 @@
+.sortContainer {
+    width: 250px;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgb(60, 40, 26);
+    display: flex;
+    flex-direction: column;
+  }
+  
+ 
+  
+  .sortOptions {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sortButton {
+    border-radius: 30px;
+    border: none;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    text-align: left;
+    background-color: rgb(60, 40, 26);
+
+  }
+  .label{
+    font: 400 14px/21px "Poppins", sans-serif;
+    color: #fff;
+
+  }
+  .sortButton:hover {
+    background-color: orange;
+  }
+  
+  .sortButton.active {
+    background-color: orange;
+  }
+  

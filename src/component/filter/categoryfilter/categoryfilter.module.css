@@ -1,0 +1,64 @@
+.filtercontainer {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  background-color: rgb(58, 37, 21);
+  min-height: 700px;
+}
+
+.filtertitle {
+  font: 500 16px/24px "Poppins", sans-serif;
+  text-align: start;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.filterlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.filteritem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+}
+
+.checkbox:checked {
+  background-color: orange;
+  border: 2px solid orange; 
+}
+
+.checkbox:checked::after {
+  content: '✓'; 
+  color: white; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px; 
+}
+
+.filterlabel {
+  font: 400 15px/22.5px "Poppins", sans-serif;
+  color: #fff;
+  text-align: center;
+}

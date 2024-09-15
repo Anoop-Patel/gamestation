@@ -2,7 +2,6 @@ import makeApiCall from "./BaseApi";
  const  BASE_URL  = "https://dummyjson.com/products";
  
  const fetchAllProduct = async () => {
-   console.log("call")
    const url =`${BASE_URL}`;
    return await makeApiCall( url);
  }

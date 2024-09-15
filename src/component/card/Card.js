@@ -41,7 +41,6 @@ const Card = () => {
   const truncateTitle = (title) => {
     return title.length > 23 ? `${title.substring(0, 23)}..` : title;
   };
-  console.log(products.images[0]);
 
   return (
     <div className={styles.cardcontainer}>

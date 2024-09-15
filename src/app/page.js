@@ -4,6 +4,7 @@ import Sidebar from "@/component/sidebar/Sidebar";
 import styles from "./page.module.css";
 import Sliders from "@/component/slider/Slider";
 import BannerSlider from "@/component/slider/bannerslider/BannerSlider";
+import Banner from "@/component/banner/Banner";
 
 export default function Home() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,7 +16,11 @@ export default function Home() {
         <BannerSlider isExpanded={isExpanded} />
       </div>
       <div>
+      <Sliders name={"MOST TRENDING"} actionname={"GO TO GAME STORE"} />
+        <Banner/>
         <Sliders name={"MOST TRENDING"} actionname={"GO TO GAME STORE"} />
+        <Banner/>
+
       </div>
     </div>
   );
