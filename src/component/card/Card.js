@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./card.module.css";
 import ActiveStar from "@/app/assets/images/activestar.png";
 import InActiveStar from "@/app/assets/images/blankstar.png";
@@ -43,6 +44,8 @@ const Card = ({ cardData }) => {
   };
 
   return (
+    <Link href={`/product/${cardData.id}`}>
+
     <div className={styles.cardcontainer}>
       <div className={styles.livecontainer}>
         <div className={styles.live}></div>
@@ -77,6 +80,7 @@ const Card = ({ cardData }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

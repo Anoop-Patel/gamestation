@@ -1,0 +1,49 @@
+ .cardcontainer{
+    width: 100%;
+    background-color: #2e2616;
+    padding: 1rem 2rem;
+    
+ }
+ .contentinfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .contentname{
+   font:400 38px/38px Press Start 2P,sans-serif;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #fff;
+  
+  }
+  .action {
+    display: flex;
+    align-items: center;
+  }
+  .actionname{
+    font:500 18px/27px Poppins,sans-serif;
+    color: #fff;
+  
+  }
+  .logo{
+  width: 24px;
+  height: 24px;
+  margin-left: 6px;
+  cursor: pointer;
+  }
+ .slider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .slider::-webkit-scrollbar {
+    display: none;
+  }
+  

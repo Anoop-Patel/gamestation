@@ -60,5 +60,10 @@ export  const  products=
     ],
     "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
 }
-  ;
+  
+export const description={
+    dummydata:" Whether you like to dive straight into fray .support teamaete or something in between",
+    name:"CHOOSE YOUR",
+    order:'100k+ order the product'
+}
  
