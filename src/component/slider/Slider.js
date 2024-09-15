@@ -5,8 +5,7 @@ import Card from "../card/Card";
 import styles from "./slider.module.css";
 import Arrow from "@/app/assets/images/arrow.png";
 
-const Sliders = ({ name = "" ,actionname=""}) => {
-
+const Sliders = ({ name = "", actionname = "", productList = [] }) => {
   return (
     <div className={styles.slidercontainer}>
       <div className={styles.contentinfo}>
@@ -14,22 +13,13 @@ const Sliders = ({ name = "" ,actionname=""}) => {
         <div className={styles.action}>
           <span className={styles.actionname}> {actionname}</span>
           <Image src={Arrow} className={styles.logo} alt="arrow" />
-
         </div>
       </div>
 
       <div className={styles.slider}>
-
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-
+        {productList.map((product) => (
+          <Card key={product.id} cardData={product} />
+        ))}
       </div>
     </div>
   );

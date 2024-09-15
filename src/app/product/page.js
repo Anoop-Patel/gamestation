@@ -5,7 +5,7 @@ import styles from "./product.module.css";
 import CategoryFilter from "@/component/filter/categoryfilter/CategoryFilter";
 import {
   fetchAllCategory,
-  fetchProductByCategory,fetchAllProduct
+  fetchAllProduct
 } from "@/service/api/Function";
 import SortIcon from "@/app/assets/images/sorticon.png";
 import Sort from "@/component/sort/Sort";
@@ -13,26 +13,25 @@ import Card from "@/component/card/Card";
 
 const Product = () => {
   const [allcategory, setAllCategory] = useState([]);
-  const [productList,setProductList]=useState([]);
+  const [productList, setProductList] = useState([]);
+  const [filteredProductList, setFilteredProductList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedCategoryProduct, setSelectedCategoryProduct] = useState([]);
   const [sortState, setSortState] = useState({
     isModalOpen: false,
     sortOption: "",
   });
 
-const getAllProduct=async()=>{
-  try {
-    const res = await fetchAllProduct();
-    if (res) {
-      setProductList(res.data.products);
+  const getAllProduct = async () => {
+    try {
+      const res = await fetchAllProduct();
+      if (res) {
+        setProductList(res.data.products);
+        setFilteredProductList(res.data.products); 
+      }
+    } catch (error) {
+      console.error("Error fetching products", error);
     }
-  } catch (error) {
-    console.error("Error fetching categories", error);
-  }
-}
-
-
+  };
 
   const getAllCategories = async () => {
     try {
@@ -45,16 +44,29 @@ const getAllProduct=async()=>{
     }
   };
 
-
-  const getAllSelectedCategoryProduct = async (data) => {
-    try {
-      const res = await fetchProductByCategory(data);
-      if (res) {
-        setSelectedCategoryProduct(res.data);
-      }
-    } catch (error) {
-      console.error("Error fetching categories", error);
+  const filterProductsByCategory = () => {
+    if (selectedCategory) {
+      const filteredProducts = productList.filter(
+        (product) => product.category === selectedCategory
+      );
+      setFilteredProductList(filteredProducts);
+    } else {
+      setFilteredProductList(productList);
     }
+  };
+
+  const sortProducts = (option) => {
+    let sortedProducts = [...filteredProductList]; 
+    if (option === "price-low-to-high") {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (option === "price-high-to-low") {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (option === "rating-high-to-low") {
+      sortedProducts.sort((a, b) => b.rating - a.rating);
+    } else if (option === "rating-low-to-high") {
+      sortedProducts.sort((a, b) => a.rating - b.rating);
+    }
+    setFilteredProductList(sortedProducts); 
   };
 
   useEffect(() => {
@@ -63,10 +75,14 @@ const getAllProduct=async()=>{
   }, []);
 
   useEffect(() => {
-    if (selectedCategory) {
-      getAllSelectedCategoryProduct(selectedCategory);
+    filterProductsByCategory();
+  }, [selectedCategory, productList]);
+
+  useEffect(() => {
+    if (sortState.sortOption) {
+      sortProducts(sortState.sortOption);
     }
-  }, [selectedCategory]);
+  }, [sortState.sortOption]);
 
   const handleSortOptionChange = (option) => {
     setSortState({ isModalOpen: false, sortOption: option });
@@ -78,7 +94,7 @@ const getAllProduct=async()=>{
       isModalOpen: !prevState.isModalOpen,
     }));
   };
-console.log(productList,"productList")
+
   return (
     <div className={styles.productmaincontainer}>
       <div className={styles.filtercontainer}>
@@ -91,12 +107,12 @@ console.log(productList,"productList")
         <div className={styles.searchcontainer}>
           {selectedCategory && (
             <div className={styles.searchtext}>
-              <span
-                className={styles.text}
-              >{`Search Result for "${selectedCategory}"`}</span>
-              <span
-                className={styles.resultnum}
-              >{`${selectedCategory.length} results found`}</span>
+              <span className={styles.text}>
+                {`Search Result for "${selectedCategory}"`}
+              </span>
+              <span className={styles.resultnum}>
+                {`${filteredProductList.length} results found`}
+              </span>
             </div>
           )}
           <div className={styles.filterbycontainer}>
@@ -117,15 +133,9 @@ console.log(productList,"productList")
           )}
         </div>
         <div className={styles.productlistcontainer}>
-
-{[...Array(18)].map((item)=>{
-  return <Card/>;
-
-})
-
-}
-
-
+          {filteredProductList.map((item) => (
+            <Card key={item.id} cardData={item} />
+          ))}
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const BannerSlider = ({ isExpanded }) => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % banners.length);
     }, 3000);
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval); // Cleanup on unmount
   }, [banners.length]);
   
   return (

@@ -4,11 +4,11 @@ import Image from "next/image";
 import styles from "./card.module.css";
 import ActiveStar from "@/app/assets/images/activestar.png";
 import InActiveStar from "@/app/assets/images/blankstar.png";
-import { fetchProductById } from "@/service/api/Function";
 import Button from "../button/Button";
-import { products } from "../../app/dummy";
-const Card = () => {
-  const [product, setProduct] = React.useState(products);
+
+const Card = ({ cardData }) => {
+  // Destructure cardData
+  const { images, title, rating, category, brand, availabilityStatus, returnPolicy, price, discountPercentage } = cardData;
 
   const renderStars = (rating) => {
     const totalStars = 5;
@@ -38,6 +38,7 @@ const Card = () => {
       </>
     );
   };
+
   const truncateTitle = (title) => {
     return title.length > 23 ? `${title.substring(0, 23)}..` : title;
   };
@@ -46,35 +47,33 @@ const Card = () => {
     <div className={styles.cardcontainer}>
       <div className={styles.livecontainer}>
         <div className={styles.live}></div>
-
-        <div className={styles.discount}>{product.discountPercentage}%</div>
+        <div className={styles.discount}>{discountPercentage}%</div>
       </div>
       <div
         className={styles.imagecontainer}
         style={{ position: "relative", width: "100%", height: "100%" }}
       >
         <Image
-          src={products.images[0]}
+          src={images[0]}
           alt="product image"
           fill
-          className={styles.productimage ? styles.productimage : ActiveStar}
+          className={styles.productimage}
         />
       </div>
 
       <div className={styles.infocontainer}>
         <div className={styles.namecontainer}>
-          <span className={styles.title}>{truncateTitle(product.title)}</span>
+          <span className={styles.title}>{truncateTitle(title)}</span>
         </div>
         <div className={styles.productinfo}>
-          <div className={styles.rating}>{renderStars(product.rating)}</div>
+          <div className={styles.rating}>{renderStars(rating)}</div>
           <div className={styles.info}>
-            {`${product.category} • ${product.brand} • ${product.availabilityStatus}`}
+            {`${category} • ${brand} • ${availabilityStatus}`}
           </div>
-          <span className={styles.return}>{product.returnPolicy}</span>
+          <span className={styles.return}>{returnPolicy}</span>
         </div>
         <div className={styles.buyproduct}>
-          <div className={styles.price}>₹{product.price}</div>
-
+          <div className={styles.price}>₹{price}</div>
           <Button />
         </div>
       </div>
