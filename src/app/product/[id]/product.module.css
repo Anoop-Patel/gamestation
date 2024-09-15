@@ -1,8 +1,14 @@
 .productmaincontainer {
   background-color: #1c170e;
-
   width: 100vw;
-  padding: 1rem 2rem;
+  padding: 3rem 2rem;
+  position:relative;
+}
+.backbutton{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
 }
 .productcontainer {
   padding: 1rem;

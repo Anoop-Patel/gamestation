@@ -4,11 +4,12 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import style from "./topbar.module.css";
-
 import IsAuthPage from "@/service/helper/isAuthPage";
 import WebsiteLogo from "@/app/assets/images/websiteLogo.png";
 import searchbar from "@/app/assets/images/searchicon.png";
 import CartBag from "@/app/assets/images/cartBag.png";
+import DropMenu from "@/app/assets/images/dropmenu.jpg";
+
 import Notification from "@/app/assets/images/notification.png";
 
 const TopBar = () => {

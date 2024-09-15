@@ -8,6 +8,8 @@ import styles from "./product.module.css";
 import { description } from "@/app/dummy";
 import ActiveStar from "@/app/assets/images/activestar.png";
 import InActiveStar from "@/app/assets/images/blankstar.png";
+import BackArrow from "@/app/assets/images/backarrow.png";
+
 import Button from "@/component/button/Button";
 import Card from "@/component/card/Card";
 import Sliders from "@/component/slider/Slider";
@@ -68,7 +70,10 @@ const SingleProduct = () => {
       setLoading(false);
     }
   };
+const handleBack=()=>{
+  router.push("/product");
 
+}
   useEffect(() => {
     if (id) {
       getProduct();
@@ -89,9 +94,16 @@ const SingleProduct = () => {
   if (!productData) {
     return <div>Product not found</div>;
   }
-console.log(productData,"productData")
   return (
     <div className={styles.productmaincontainer}>
+      <div className={styles.backbutton} onClick={handleBack}>
+        
+      <Image
+            src={BackArrow}
+            alt="back"
+            width={13}
+            height={20}
+          /> </div>
       <div className={styles.productcontainer}>
         <div className={styles.Imagecontainer}>
           <div className={styles.relesecontainer}>
