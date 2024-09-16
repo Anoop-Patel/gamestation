@@ -4,14 +4,13 @@ import Image from "next/image";
 import styles from "./reviewcard.module.css";
 import ActiveStar from "@/app/assets/images/activestar.png";
 import InActiveStar from "@/app/assets/images/blankstar.png";
-import DefaultAvatar from "@/app/assets/images/blankstar.png"; 
+import DefaultAvatar from "@/app/assets/images/blankstar.png";
 
-const ReviewCard = ({cardData,  avatar = DefaultAvatar }) => {
-  const renderStars = (rating ) => {
+const ReviewCard = ({ cardData, avatar = DefaultAvatar }) => {
+  const renderStars = (rating) => {
     const totalStars = 5;
     const activeStars = Math.floor(rating);
     const inactiveStars = totalStars - activeStars;
-console.log(cardData,"cardData");
 
     return (
       <>
@@ -49,14 +48,13 @@ console.log(cardData,"cardData");
             className={styles.avatar}
           />
         </div>
-         <div className={styles.userInfo}> 
-        <span className={styles.username}>{cardData.reviewerEmail}</span>
-        <div className={styles.stars}>{renderStars(cardData.rating)}</div>
+        <div className={styles.userInfo}>
+          <span className={styles.username}>{cardData.reviewerEmail}</span>
+          <div className={styles.stars}>{renderStars(cardData.rating)}</div>
         </div>
       </div>
       <div className={styles.comment}>
-        
-      <span className={styles.reviewText}>{cardData.comment}</span>
+        <span className={styles.reviewText}>{cardData.comment}</span>
       </div>
     </div>
   );

@@ -1,9 +1,14 @@
+
+.productpagewrapper{
+  background-color: #100e0b;
+
+}
 .productmaincontainer {
   display: flex;
   align-items: flex-start;
   padding: 1rem;
   box-sizing: border-box;
-  background-color: rgb(40, 27, 18);
+  background-color: #1a150d;
   position: relative;
 }
 
@@ -92,8 +97,12 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  height: 700px;
+  overflow-y: scroll;
 }
-
+.productlistcontainer::-webkit-scrollbar {
+  display: none;
+}
 @media screen and (max-width: 600px) {
   .productmaincontainer{
     padding: 0.3rem;
@@ -109,7 +118,18 @@
     width: 100%;
  
   }
-  
+  .text{
+    font: 400 16px/30px "Poppins", sans-serif;
+
+  }
+  .resultnum {
+    color: #fff;
+    font: 400 14px/24px "Poppins", sans-serif;
+  }
+  .searchcontainer {
+   
+    justify-content: center;
+  }
 }
 
 

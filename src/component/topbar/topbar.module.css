@@ -203,7 +203,7 @@
   
   @media screen and (max-width: 900px) {
     .navcontainer,
-    .searchbar,
+    .searchbar,.divider,
     .actioncontainer .logobg {
       display: none;
     }

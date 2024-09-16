@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Banner from "@/component/banner/Banner"; // Import the Banner component
-import styles from "./bannerslider.module.css"; // Import CSS module
+import Banner from "@/component/banner/Banner"; 
+import styles from "./bannerslider.module.css";
 
 const BannerSlider = ({ bannerProducts }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,7 +14,7 @@ const BannerSlider = ({ bannerProducts }) => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % bannerProducts.length);
     }, 3000);
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval); 
   }, [bannerProducts.length]);
 
   return (
@@ -25,7 +25,7 @@ const BannerSlider = ({ bannerProducts }) => {
             key={index}
             className={`${styles.banner} ${index === activeIndex ? styles.active : ""}`}
           >
-            <Banner product={product} />
+            <Banner product={product} isSlider={true} />
           </div>
         ))}
       </div>

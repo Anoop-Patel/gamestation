@@ -10,6 +10,7 @@ import {
 import SortIcon from "@/app/assets/images/sorticon.png";
 import Sort from "@/component/sort/Sort";
 import Card from "@/component/card/Card";
+import Banner from "@/component/banner/Banner";
 
 const Product = () => {
   const [allcategory, setAllCategory] = useState([]);
@@ -21,13 +22,16 @@ const Product = () => {
     sortOption: "",
   });
   const [isCategoryFilterVisible, setIsCategoryFilterVisible] = useState(true); 
-
+  const [singleProduct, setSingleProduct] = useState(null);
+  const randomIndex = Math.floor(Math.random() * productList.length);
   const getAllProduct = async () => {
     try {
       const res = await fetchAllProduct();
       if (res) {
         setProductList(res.data.products);
         setFilteredProductList(res.data.products); 
+        setSingleProduct(res.data.products[randomIndex]);
+
       }
     } catch (error) {
       console.error("Error fetching products", error);
@@ -116,6 +120,7 @@ const Product = () => {
   };
 
   return (
+    < div className={styles.productpagewrapper}> 
     <div className={styles.productmaincontainer}>
       <div className={styles.filtercontainer}>
         {isCategoryFilterVisible && (
@@ -166,6 +171,11 @@ const Product = () => {
         </div>
       </div>
     </div>
+          {singleProduct && <Banner   product={singleProduct}   flexstyle={"flex-end"} />}
+          {singleProduct && <Banner   product={singleProduct}   flexstyle={"flex-start"} />}
+          {singleProduct && <Banner   product={singleProduct}   flexstyle={"center"} />}
+
+          </div>
   );
 };
 

@@ -20,14 +20,12 @@ export default function Home() {
       if (res) {
         const products = res.data.products;
 
-        // Sort by rating and select the top 3 products for BannerSlider
         const sortedByRating = [...products].sort(
           (a, b) => b.rating - a.rating
         );
         setTopRatedProducts(sortedByRating);
-        setSingleProduct(products[0]); // Display the first product in Banner
+        setSingleProduct(products[0]);
 
-        // Sort products by price (Low to High)
         const sortedByPrice = [...products].sort((a, b) => a.price - b.price);
         setLowPriceProducts(sortedByPrice);
 
@@ -59,7 +57,7 @@ export default function Home() {
           actionname={"GO TO PRODUCT STORE"}
           productList={topRatedProducts}
         />
-        {singleProduct && <Banner product={singleProduct} />}
+        {singleProduct && <Banner product={singleProduct}  flexstyle={"center"}/>}
 
         <Sliders
           name={"MOST LOW PRICE"}
@@ -67,7 +65,7 @@ export default function Home() {
           productList={lowPriceProducts}
         />
 
-        {singleProduct && <Banner product={singleProduct} />}
+        {singleProduct && <Banner product={singleProduct}   flexstyle={"flex-end"} />}
       </div>
     </div>
   );

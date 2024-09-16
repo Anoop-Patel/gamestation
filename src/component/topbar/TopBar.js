@@ -13,8 +13,9 @@ import Notification from "@/app/assets/images/notification.png";
 import HomeIcon from "@/app/assets/images/home.png";
 import ProductIcon from "@/app/assets/images/cartBag.png";
 import SettingsIcon from "@/app/assets/images/settings.png";
-import LogoutIcon from "@/app/assets/images/logout.png"; 
+import LogoutIcon from "@/app/assets/images/logout.png";
 import NotificationPage from "../notification/Notification";
+import { useRouter } from "next/navigation";
 
 const mobmenu = [
   {
@@ -44,36 +45,43 @@ const mobmenu = [
 
 const TopBar = () => {
   const showTopbar = !IsAuthPage();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNotificationOpen, setNotificationOpen] = useState(false);
-
-
+ 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleMenuFunction = (menuItem) => {
     if (menuItem.name === "Notification") {
-      setNotificationOpen(!isNotificationOpen)
-      console.log("Notification clicked");
+      setNotificationOpen(!isNotificationOpen);
     }
     if (menuItem.name === "Logout") {
-      localStorage.clear(); 
+      localStorage.clear();
     }
   };
 
+  const handleProduct=()=>{
+    router.push("/product");
+
+  }
   return (
     showTopbar && (
       <div className={style.topbarcontainer}>
-       
-       { isNotificationOpen && <div className={style.notification}> 
-        <NotificationPage/>
-       </div>
-       }
+        {isNotificationOpen && (
+          <div className={style.notification}>
+            <NotificationPage />
+          </div>
+        )}
 
         <div className={style.leftcontainer}>
           <div className={style.logocontainer}>
-            <Image src={WebsiteLogo} className={style.logo} alt="website logo" />
+            <Image
+              src={WebsiteLogo}
+              className={style.logo}
+              alt="website logo"
+            />
           </div>
 
           <div className={style.navcontainer}>
@@ -101,7 +109,10 @@ const TopBar = () => {
           <div className={style.divider}></div>
 
           <div className={style.actioncontainer}>
-            <div className={style.logobg} onClick={()=>setNotificationOpen(!isNotificationOpen)}>
+            <div
+              className={style.logobg}
+              onClick={() => setNotificationOpen(!isNotificationOpen)}
+            >
               <Image
                 src={Notification}
                 className={style.logo}
@@ -111,7 +122,7 @@ const TopBar = () => {
             <div className={style.divider}></div>
 
             <div className={style.logobg}>
-              <Image src={CartBag} className={style.logo} alt="CartBag" />
+              <Image src={CartBag} onClick={() => handleProduct()}  className={style.logo} alt="CartBag" />
             </div>
             <div className={style.divider}></div>
 

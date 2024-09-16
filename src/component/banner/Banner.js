@@ -6,8 +6,7 @@ import Button from "../button/Button";
 import ActiveStar from "@/app/assets/images/activestar.png";
 import InActiveStar from "@/app/assets/images/blankstar.png";
 
-const Banner = ({ product }) => {
-  // Null/undefined check for product
+const Banner = ({ product,flexstyle="flex-start",isSlider=false }) => {
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -46,7 +45,7 @@ const Banner = ({ product }) => {
   };
 
   return (
-    <div className={styles.bannercontainer}>
+    <div className={styles.bannercontainer} style={{ justifyContent: flexstyle,margin:isSlider?"":"1rem 0rem" }}>
       <div className={styles.contentcontainer}>
         <div className={styles.contentintro}>
           <span className={styles.name}>{truncateTitle(product.title)} </span>

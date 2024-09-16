@@ -14,15 +14,14 @@ import Button from "@/component/button/Button";
 import Card from "@/component/card/Card";
 import Sliders from "@/component/slider/Slider";
 import ReviewSlider from "@/component/slider/reviewslider/ReviewSlider";
+import Banner from "@/component/banner/Banner";
 
 const SingleProduct = () => {
   const { id } = useParams();
   const router = useRouter();
-
+  const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState(null);
   const [categoryList, setCategoryList] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   const renderStars = (rating) => {
     const totalStars = 5;
     const activeStars = Math.floor(rating);
@@ -58,7 +57,6 @@ const SingleProduct = () => {
       const res = await fetchProductById(id);
       if (res) {
         setProductData(res.data);
-
         const categoryRes = await fetchProductByCategory(res.data.category);
         if (categoryRes) {
           setCategoryList(categoryRes.data);
@@ -86,6 +84,7 @@ const handleBack=()=>{
       router.push("/signin");
     }
   }, [router]);
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -144,13 +143,15 @@ const handleBack=()=>{
       <div className={styles.relatedProductsContainer}>
 
       <ReviewSlider name={" Reviews from other customers"} actionname={"View More"} productList={productData.reviews}/>
-       
+        
+
          <Sliders
           name={"Product recommended for you"}
           actionname={"View All"}
           productList={categoryList.products
           }
         />
+
       </div>
     </div>
   );
